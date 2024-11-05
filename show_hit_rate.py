@@ -12,8 +12,8 @@ for f in file_names:
     try:
         with open("result/"+f, 'r') as file:
             data=json.load(file)
-            print(f+"- Byte hit ratio: ",round(1-(sum(data["segment_byte_miss"])/sum(data["segment_byte_req"])),2))
-            print(f+"- Obj hit ratio: ",round(1-(sum(data["segment_object_miss"])/sum(data["segment_object_req"])),2))
+            print(f+"- Obj hit ratio: ",round((1-(sum(data["segment_object_miss"])/sum(data["segment_object_req"])))*100,2))
+            print(f+"- Byte hit ratio: ",round((1-(sum(data["segment_byte_miss"])/sum(data["segment_byte_req"])))*100,2))
     except FileNotFoundError:
         # 當文件不存在時，輸出沒找到
         print(f+": not found")
